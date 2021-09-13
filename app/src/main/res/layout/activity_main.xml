@@ -11,9 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/clear"
+        app:layout_constraintStart_toStartOf="@id/submit"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="name" />
 
     <TextView
         android:id="@+id/hellomsg"
@@ -29,8 +30,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/submit"
-        app:layout_constraintEnd_toEndOf="@id/helloUser"
-        app:layout_constraintStart_toStartOf="@id/helloUser"
+        app:layout_constraintEnd_toStartOf="@id/clear"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/helloUser" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear"
+        app:layout_constraintStart_toEndOf="@id/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/submit"
+        app:layout_constraintBottom_toBottomOf="@id/submit"
+        android:layout_marginLeft="10dp"
+        android:text="clear"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

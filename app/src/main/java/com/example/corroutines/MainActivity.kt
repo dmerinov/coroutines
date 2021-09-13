@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity(), ActivityView {
 
     private fun setListeners() {
         submit.setOnClickListener { presenter.sayHello() }
+        clear.setOnClickListener { presenter.clearText() }
     }
 
     override fun showResults(name: String) {

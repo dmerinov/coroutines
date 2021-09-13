@@ -14,6 +14,10 @@ class Presenter(private val view: ActivityView, private val datasource: Datasour
         }
     }
 
+    fun clearText() {
+        view.showResults("")
+    }
+
 }
 
 interface ActivityView {
