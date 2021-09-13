@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ActivityView {
 
-    private val presenter = Presenter(this, datasource = Datasource())
+    private val presenter = Presenter(this, datasource = CommonDatasource())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity(), ActivityView {
     }
 
     private fun setListeners() {
-        submit.setOnClickListener { presenter.sayHello(helloUser.text.toString()) }
+        submit.setOnClickListener { presenter.sayHello() }
     }
 
     override fun showResults(name: String) {
-        hellomsg.setText("$name")
+        hellomsg.text = name
     }
 }

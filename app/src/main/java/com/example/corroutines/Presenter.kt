@@ -1,15 +1,21 @@
 package com.example.corroutines
 
-class Presenter(private val view: ActivityView, private val datasource: IDatasource) {
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-    fun sayHello(name: String) {
-        view.showResults(datasource.getData())
+class Presenter(private val view: ActivityView, private val datasource: Datasource) {
+
+    fun sayHello() {
+        CoroutineScope(Dispatchers.Main).launch {
+            val result = withContext(Dispatchers.IO) { datasource.getData() }
+            view.showResults(result)
+        }
     }
-
 
 }
 
 interface ActivityView {
-    fun showResults(string: String)
-
+    fun showResults(name: String)
 }
